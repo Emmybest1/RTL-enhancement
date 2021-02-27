@@ -9,7 +9,7 @@ const Home: React.FC = (): JSX.Element => {
   const OnChangeHandler = (
     ev: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     stateDispatcher: React.Dispatch<React.SetStateAction<string>> | Function
-  ) => {
+  ): void => {
     stateDispatcher(ev.target.value);
   };
   return (
@@ -22,7 +22,7 @@ const Home: React.FC = (): JSX.Element => {
             type="search"
             placeholder="Search user"
             value={searchedUserName}
-            onChange={(ev: React.ChangeEvent<HTMLInputElement>) => OnChangeHandler(ev, setSearchedUserName)}
+            onChange={(ev: React.ChangeEvent<HTMLInputElement>): void => OnChangeHandler(ev, setSearchedUserName)}
           />
 
           {!!searchedUserName && <p>You typed: {searchedUserName}</p>}
