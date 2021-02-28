@@ -6,7 +6,7 @@ const Home: React.FC = (): JSX.Element => {
   const [searchedUserName, setSearchedUserName] = useState<string>('');
   const [searchId] = useUniqueId(1);
 
-  const OnChangeHandler = (
+  const onChangeHandler = (
     ev: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     stateDispatcher: React.Dispatch<React.SetStateAction<string>> | Function
   ): void => {
@@ -22,10 +22,11 @@ const Home: React.FC = (): JSX.Element => {
             type="search"
             placeholder="Search user"
             value={searchedUserName}
-            onChange={(ev: React.ChangeEvent<HTMLInputElement>): void => OnChangeHandler(ev, setSearchedUserName)}
+            aria-label="Search"
+            onChange={(ev: React.ChangeEvent<HTMLInputElement>): void => onChangeHandler(ev, setSearchedUserName)}
           />
 
-          {!!searchedUserName && <p>You typed: {searchedUserName}</p>}
+          {!!searchedUserName && <p data-testid="userName">You typed: {searchedUserName}</p>}
         </section>
       </div>
     </main>
