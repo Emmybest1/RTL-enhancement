@@ -14,7 +14,7 @@ describe('<Home/>', () => {
     renderHome();
   });
 
-  test('should render input content in paragraphy', () => {
+  test('should render input content in paragraph', () => {
     const input = renderHome();
     userEvent.type(input, 'Emma');
     expect(screen.queryByTestId(/userName/i)).toHaveTextContent('Emma');
